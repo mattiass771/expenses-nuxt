@@ -199,7 +199,9 @@ const handleAddItem = () => {
     }
     localStorage.setItem(`estim-val-price-diff-app-${sessionName.value}`, JSON.stringify(items.value))
     localStorage.setItem('estim-val-price-diff-app-last', sessionName.value)
-    allSessions.value?.push(sessionName.value)
+    if (!allSessions.value?.includes(sessionName.value)) {
+      allSessions.value?.push(sessionName.value)
+    }
     name.value = defaultItem.name
     plannedPrice.value = defaultItem.plannedPrice
     billedPrice.value = defaultItem.billedPrice
